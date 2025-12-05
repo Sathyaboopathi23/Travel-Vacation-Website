@@ -1,0 +1,30 @@
+.profile-dropdown {
+    position: absolute;
+    top: 200px;
+    right: 20px;
+    width: 400px;
+    display: none;
+    border-radius: 15px;
+    background: #F31B03 ;
+    color: white;
+    padding: 30px;
+    font-size: 1.5rem;
+    z-index: 9999;
+}
+.profile-dropdown button {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    padding: 12px;
+    background:#F31B03;
+    color: white;
+    border: none;
+    position: relative;
+}
+
+.profile-dropdown .arrow{
+    color: white;
+    position: absolute;
+    right: 10px;
+    top:5px
+}

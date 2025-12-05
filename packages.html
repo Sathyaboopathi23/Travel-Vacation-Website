@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Vacation Layout</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="home.css">
+<style>
+  body{
+      overflow-x: hidden;
+  }
+  .hero-sec{
+    background: url("images/2fe0ae6dcf6ae2c59aab889d8bbfefba67d5854d.jpg") center/cover no-repeat;
+    height: 60vh;
+    position: relative;
+  }
+
+  .hero-cont{
+    color: white;
+    position: absolute;
+    top: 30%;
+    left:5%;
+    z-index: 5;
+  }
+
+  .hero-cont h1{
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .hero-cont h3{
+    font-size: 4rem;
+  }
+  
+  .travel-card {
+    background: #e60000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    height: 550px;
+  }
+
+  .card-img-wrap {
+    position: relative;
+  }
+
+  .card-img-wrap img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .heart-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: red;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 20px;
+    color:white;
+    cursor: pointer;
+  }
+
+  .travel-card .card-body {
+    padding: 25px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .sub-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .desc {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+</style>
+
+</head>
+<body>
+    <nav class="navbar px-3" style="background-color: rgb(249, 248, 248);">
+    <div class="container-fluid d-flex justify-content-between">
+        <div>
+        <a class="navbar-brand " href="#">
+            <img src="images/b88b264bdea4cacb0a49c00e0da8648ef0b1dc89.png" alt="logo" style="width: 150px;" style="margin-bottom: 0;">
+            <h3 style="margin-top: 0;">Wanderwise</h3>
+        </a></div>
+
+        <div class="d-flex" style="flex-direction: column;">
+            <form class="mt-3 mb-3">
+                <div class="input-group search-wrapper mx-auto">
+                    <input type="text" class="form-control search-box" placeholder="Search Destination">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+            </form>
+
+            <ul class="nav justify-content-center menu-items">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="packages.html">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="images/c5f4b39135b64b251c4680bd42159b107aae9c4a.jpg" alt="" style="width: 80px;margin-right: 20px;cursor: pointer;border-radius: 50%;height: 80px;" id="profileIcon">
+            <i class="bi bi-heart me-2 fs-1" style="color: black;cursor: pointer;" onclick="window.location.href='wishlist.html'"></i>
+            <i class="bi bi-cart me-2 fs-1" style="color: black;cursor: pointer;" onclick="window.location.href='cart.html'"></i>
+            <i class="bi bi-bell fs-1" style="color: black;" onclick="window.location.href='home.html'"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="profile-dropdown" id="profileDropdown">
+  <h5 class="mb-3 fs-2">My Accounts</h5>
+  <hr>
+  <button onclick="goPersonal()">Personal Information <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='myBooking.html'">My Booking <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='password.html'">Password Manager <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='logout.html'">Logout <i class="bi bi-arrow-right arrow"></i></button>
+</div>
+
+<script>
+    document.getElementById("profileIcon").addEventListener("click", () => {
+        document.getElementById("profileDropdown").style.display =
+        document.getElementById("profileDropdown").style.display === "block"
+        ? "none"
+        : "block";
+    });
+
+    document.addEventListener("click", (event) => {
+        const dropdown = document.getElementById("profileDropdown");
+        const icon = document.getElementById("profileIcon");
+
+        if (dropdown.style.display === "block" &&
+            !dropdown.contains(event.target) &&
+            !icon.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+
+    function goPersonal() {
+        window.location.href = "profile.html";
+    }
+
+    function toggleHeart(el) {
+    el.classList.toggle("ash");
+    }
+</script>
+
+<section class="hero-sec">
+    <div class="hero-cont">
+    <h1>Book Your Slot</h1>
+    <h3>Advance Packages</h3>
+    </div>
+</section>
+
+<section class="container-fluid my-5">
+  <h2 style="font-size: 2.5rem;text-align: center;margin: 25px auto 50px auto;color: black;">Advance Packages</h2>
+    <div class="row g-5">
+        <div class="col-md-6">
+            <div class="travel-card">
+                <div class="card-img-wrap">
+                    <img src="images/2288801cad1faf2e816ec36480c7cb2a1006bedf.jpg" class="img-fluid" alt="img1">
+                    <i class="bi bi-heart-fill heart-icon" onclick="toggleHeart(this)"></i>
+                </div>
+
+                <div class="card-body text-white">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3 class="title">Adventure package</h3>
+                            <p style="font-size: 1.4rem;">6 Days / 5 Nights</p>
+                            <p style="font-size: 1.2rem;">$1200</p>
+                            <button class="btn btn-light px-4 fs-4" onclick="window.location.href='paymentSelection.html'">Book now</button>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h5 class="sub-title">Thrill Seekers & Nature Explorers</h5>
+                            <p class="desc">
+                                Dive into the wild with our curated adventure packages that combine adrenaline-pumping activities with breathtaking landscapes.
+                                Whether you're trekking through rugged mountains, rafting down rapid rivers, or zip-lining over tropical forests,
+                                each journey is designed for unforgettable excitement and raw connection with nature.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="travel-card">
+                <div class="card-img-wrap">
+                    <img src="images/aa0d5d1a6a1c06cc6ea2cf5f2893e20546467e8b.jpg" class="img-fluid" alt="img2">
+                    <i class="bi bi-heart-fill heart-icon" onclick="toggleHeart(this)"></i>
+                </div>
+
+                <div class="card-body text-white">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3 class="title">Honeymoon package</h3>
+                            <p style="font-size: 1.4rem;">6 Days / 5 Nights</p>
+                            <p style="font-size: 1.2rem;">$1200</p>
+                            <button class="btn btn-light px-4 fs-4" onclick="window.location.href='paymentSelection.html'">Book now</button>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h5 class="sub-title">Romantic Escapes Just for You</h5>
+                            <p class="desc">
+                                Celebrate your love with dreamy destinations and intimate experiences. Our honeymoon packages are designed to deliver luxury and unforgettable memories.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+      </div>
+
+      <div class="row g-5 mt-3">
+        <div class="col-md-6">
+            <div class="travel-card">
+                <div class="card-img-wrap">
+                    <img src="images/71c7c07defee24ae8b6e3a1ee81e1c1ade874e4f.jpg" class="img-fluid" alt="img3">
+                    <i class="bi bi-heart-fill heart-icon" onclick="toggleHeart(this)"></i>
+                </div>
+
+                <div class="card-body text-white">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3 class="title">Family package</h3>
+                            <p style="font-size: 1.4rem;">6 Days / 5 Nights</p>
+                            <p style="font-size: 1.2rem;">$1200</p>
+                            <button class="btn btn-light px-4 fs-4" onclick="window.location.href='paymentSelection.html'">Book now</button>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h5 class="sub-title">Unforgettable Moments for the Whole Family</h5>
+                            <p class="desc">
+                                Create lifelong memories with our family-friendly travel packages, thoughtfully designed to entertain all age groups. Whether it's theme park thrills, beachside bonding, or cultural advantures, each itineray is packed with fun, comfort, and convenience for parents and kids alike.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="travel-card">
+                <div class="card-img-wrap">
+                    <img src="images/0f42f32f9c727df6138a004d7e00dfb1af094671.jpg" class="img-fluid" alt="img4">
+                    <i class="bi bi-heart-fill heart-icon" onclick="toggleHeart(this)"></i>
+                </div>
+
+                <div class="card-body text-white">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3 class="title">Solo package</h3>
+                            <p style="font-size: 1.4rem;">6 Days / 5 Nights</p>
+                            <p style="font-size: 1.2rem;">$1200</p>
+                            <button class="btn btn-light px-4 fs-4" onclick="window.location.href='paymentSelection.html'">Book now</button>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h5 class="sub-title">Frredom to Explore, Your Way</h5>
+                            <p class="desc">
+                                Discover the world on your own terms with our specially curated solo travel packages. Whether you're seeking peace in nature, adventure off the beaten path, or cultural immersion, these trips offer safety, flexibility, and unforgettable self-discovery - all without compromising comfort or connection.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section py-5">
+    <div class="container-fluid">
+        <div class="row ">
+
+            <div class="col-lg-2 col-md-6 text-center mb-4">
+                <img src="images/b88b264bdea4cacb0a49c00e0da8648ef0b1dc89.png" class="footer-logo mb-2" alt="">
+                <h4 class="footer-brand">Wanderwise</h4>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">About Us</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Success</a></li>
+                    <li><a href="#">Vacations</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Browse</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Beach</a></li>
+                    <li><a href="#">City Tours</a></li>
+                    <li><a href="#">Family</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Contact & Social</h5>
+                <p class="footer-contact">
+                    123 Saik Street, Chennai, TN<br>
+                    +91-7867980-688<br>
+                    Wan@wanderwisetravel.com
+                </p>
+            </div>
+
+            <div class="col-lg-2 col-md-6 text-center mb-4">
+                <img src="images/8c95e3ef46e407b0142cba5419c2cbb1714d7e95.jpg" class="footer-round-img" alt="">
+                <div class="text-center mt-4">
+                    <h6 class="follow-title">Follow Us On :</h6>
+                    <div class="footer-icons">
+                        <i class="bi bi-youtube"></i>
+                        <i class="bi bi-google"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            <p style="font-size: 1.2rem;">© 2025 wanderwisevacation. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

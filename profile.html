@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Vacation Layout</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="home.css">
+<style>
+    .sidebar button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 30px;
+        border-radius: 12px;
+        font-weight: 600;
+        border: 1px solid black;
+        background: white;
+        color:black;
+        font-size: 1.5rem;
+        box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    }
+    
+    .sidebar .active {
+        background: #F31B03 !important;
+        color: white;
+    }
+    
+    .frm-ctrl {
+        border-radius: 8px !important;
+        height: 75px;
+        background: #F31B03;
+        border: 1px solid black;
+        width: 80%;
+        margin-bottom: 25px;
+    }
+    
+    .update-btn {
+        background: #F31B03 ;
+        padding: 18px 45px;
+        border-radius: 12px;
+        border: 1px solid black;
+        font-size: 18px;
+        color: white;
+        font-weight: 600;
+    }
+    
+    label{
+        font-size: 1.5rem;
+        color: black;
+    
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar px-3" style="background-color: rgb(249, 248, 248);">
+    <div class="container-fluid d-flex justify-content-between">
+        <div>
+        <a class="navbar-brand " href="#">
+            <img src="images/b88b264bdea4cacb0a49c00e0da8648ef0b1dc89.png" alt="logo" style="width: 150px;" style="margin-bottom: 0;">
+            <h3 style="margin-top: 0;">Wanderwise</h3>
+        </a></div>
+
+        <div class="d-flex" style="flex-direction: column;">
+            <form class="mt-3 mb-3">
+                <div class="input-group search-wrapper mx-auto">
+                    <input type="text" class="form-control search-box" placeholder="Search Destination">
+                    <i class="bi bi-search search-icon" onclick="window.location.href='destination.html'"></i>
+                </div>
+            </form>
+
+            <ul class="nav justify-content-center menu-items">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="images/c5f4b39135b64b251c4680bd42159b107aae9c4a.jpg" alt="" style="width: 80px;margin-right: 20px;cursor: pointer;border-radius: 50%;height: 80px;" id="profileIcon">
+            <i class="bi bi-heart me-2 fs-1" style="color: black;cursor: pointer;" onclick="window.location.href='wishlist.html'"></i>
+            <i class="bi bi-cart me-2 fs-1" style="color: black;cursor: pointer;" onclick="window.location.href='cart.html'"></i>
+            <i class="bi bi-bell fs-1" style="color: black;" onclick="window.location.href='home.html'"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="profile-dropdown" id="profileDropdown">
+  <h5 class="mb-3 fs-2">My Accounts</h5>
+  <hr>
+  <button onclick="goPersonal()">Personal Information <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='myBooking.html'">My Booking <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='password.html'">Password Manager <i class="bi bi-arrow-right arrow"></i></button>
+  <button onclick="window.location.href='logout.html'">Logout <i class="bi bi-arrow-right arrow"></i></button>
+</div>
+
+<script>
+    document.getElementById("profileIcon").addEventListener("click", () => {
+        document.getElementById("profileDropdown").style.display =
+        document.getElementById("profileDropdown").style.display === "block"
+        ? "none"
+        : "block";
+    });
+
+    document.addEventListener("click", (event) => {
+        const dropdown = document.getElementById("profileDropdown");
+        const icon = document.getElementById("profileIcon");
+
+        if (dropdown.style.display === "block" &&
+            !dropdown.contains(event.target) &&
+            !icon.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+
+    function goPersonal() {
+        window.location.href = "profile.html";
+    }
+</script>
+
+<div class="container-fluid">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 40px 0;">
+    <h2 style="font-size: 2.5rem; color: black; margin: 0 auto; text-align: center; width: 100%;">My Accounts</h2>
+    <img src="images/c5f4b39135b64b251c4680bd42159b107aae9c4a.jpg" 
+         style="width: 180px; height: 180px; border-radius: 50%;margin-right: 25px;">
+</div>
+
+    <div class="row">
+
+        <div class="col-md-3 sidebar p-4">
+            <button class="active">Personal Information</button>
+            <button onclick="window.location.href='myBooking.html'">My Booking</button>
+            <button onclick="window.location.href='password.html'">Password Manager</button>
+            <button onclick="location.href='logout.html'">Logout</button>
+        </div>
+
+        <div class="col-md-7 p-4" style="margin-left: 100px;">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label>First Name</label>
+                    <input class="form-control frm-ctrl">
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input class="form-control frm-ctrl">
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label>E-mail</label>
+                <input class="form-control frm-ctrl">
+            </div>
+
+            <div class="row mb-4">
+                <label>Phone</label>
+                <input class="form-control frm-ctrl">
+            </div>
+
+            <div class="row mb-4">
+                <label>Gender</label>
+                <input class="form-control frm-ctrl">
+            </div>
+
+            <button class="update-btn">Update Change</button>
+        </div>
+
+    </div>
+</div>
+
+
+<footer class="footer-section py-5">
+    <div class="container-fluid">
+        <div class="row ">
+
+            <div class="col-lg-2 col-md-6 text-center mb-4">
+                <img src="images/b88b264bdea4cacb0a49c00e0da8648ef0b1dc89.png" class="footer-logo mb-2" alt="">
+                <h4 class="footer-brand">Wanderwise</h4>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">About Us</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Success</a></li>
+                    <li><a href="#">Vacations</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Browse</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Beach</a></li>
+                    <li><a href="#">City Tours</a></li>
+                    <li><a href="#">Family</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-title">Contact & Social</h5>
+                <p class="footer-contact">
+                    123 Saik Street, Chennai, TN<br>
+                    +91-7867980-688<br>
+                    Wan@wanderwisetravel.com
+                </p>
+            </div>
+
+            <div class="col-lg-2 col-md-6 text-center mb-4">
+                <img src="images/8c95e3ef46e407b0142cba5419c2cbb1714d7e95.jpg" class="footer-round-img" alt="">
+                <div class="text-center mt-4">
+                    <h6 class="follow-title">Follow Us On :</h6>
+                    <div class="footer-icons">
+                        <i class="bi bi-youtube"></i>
+                        <i class="bi bi-google"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            <p style="font-size: 1.2rem;">© 2025 wanderwisevacation. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
